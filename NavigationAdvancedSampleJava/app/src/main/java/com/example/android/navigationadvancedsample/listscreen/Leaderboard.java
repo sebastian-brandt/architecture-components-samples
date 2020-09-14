@@ -29,8 +29,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.android.navigationadvancedsample.R;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,11 +42,11 @@ public class Leaderboard extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_leaderboard, container, false);
 
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> data = new ArrayList<>();
         for (int i=0; i<10; ++i) {
-            list.add("Person " + (i+1));
+            data.add("Person " + (i+1));
         }
-        MyAdapter viewAdapter = new MyAdapter(list);
+        MyAdapter viewAdapter = new MyAdapter(data);
 
         RecyclerView leaderBoardView = view.findViewById(R.id.leaderboard_list);
         // use this setting to improve performance if you know that changes
@@ -59,7 +57,6 @@ public class Leaderboard extends Fragment {
 
         return view;
     }
-
 }
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {

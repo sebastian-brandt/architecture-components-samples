@@ -57,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
         setupBottomNavigationBar();
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (currentNavController != null && currentNavController.getValue() != null) {
+            return currentNavController.getValue().navigateUp();
+        }
+        return false;
+    }
+
     /**
      * Called on first creation and when restoring state.
      */
@@ -76,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // Whenever the selected controller changes, setup the action bar.
         controller.observe(this,
                 navController -> setupActionBarWithNavController(MainActivity.this, navController, null));
+
         currentNavController = controller;
     }
 
@@ -105,13 +114,5 @@ public class MainActivity extends AppCompatActivity {
                 .setDrawerLayout(drawerLayout)
                 .setFallbackOnNavigateUpListener(fallbackOnNavigateUpListener)
                 .build();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (currentNavController != null && currentNavController.getValue() != null) {
-            return currentNavController.getValue().navigateUp();
-        }
-        return false;
     }
 }

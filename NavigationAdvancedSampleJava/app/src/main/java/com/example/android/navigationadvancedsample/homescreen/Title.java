@@ -34,12 +34,9 @@ public class Title extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_title, container, false);
 
-        view.findViewById(R.id.about_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavHostFragment.findNavController(Title.this).navigate(R.id.action_title_to_about);
-            }
-        });
+        view.findViewById(R.id.about_btn).setOnClickListener(
+                v -> NavHostFragment.findNavController(Title.this).navigate(R.id.action_title_to_about));
+
         return view;
     }
 }
