@@ -34,6 +34,7 @@ public class Register extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
+
         view.findViewById(R.id.signup_btn).setOnClickListener(
                 v -> NavHostFragment.findNavController(Register.this).navigate(R.id.action_register_to_registered));
 

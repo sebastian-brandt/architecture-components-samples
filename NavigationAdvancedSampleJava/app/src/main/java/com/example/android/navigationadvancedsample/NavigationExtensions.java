@@ -107,8 +107,7 @@ public final class NavigationExtensions {
                 String newlySelectedItemTag = graphIdToTagMap.get(item.getItemId());
                 if (! selectedItemTag.value.equals(newlySelectedItemTag)) {
                     // Pop everything above the first fragment (the "fixed start destination")
-                    fragmentManager.popBackStack(firstFragmentTag,
-                            FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    fragmentManager.popBackStack(firstFragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                     NavHostFragment selectedFragment = (NavHostFragment) fragmentManager.findFragmentByTag(newlySelectedItemTag);
 
@@ -168,6 +167,7 @@ public final class NavigationExtensions {
                 }
             }
         });
+
         return selectedNavController;
     }
 
@@ -194,6 +194,7 @@ public final class NavigationExtensions {
         fragmentManager.beginTransaction()
                 .add(containerId, navHostFragment, fragmentTag)
                 .commitNow();
+
         return navHostFragment;
     }
 
@@ -208,6 +209,7 @@ public final class NavigationExtensions {
         if (isPrimaryNavFragment) {
             fragmentTransaction.setPrimaryNavigationFragment(navHostFragment);
         }
+
         fragmentTransaction.commitNow();
     }
 

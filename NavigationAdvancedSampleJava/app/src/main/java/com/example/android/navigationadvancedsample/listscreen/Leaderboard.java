@@ -43,8 +43,8 @@ public class Leaderboard extends Fragment {
         View view = inflater.inflate(R.layout.fragment_leaderboard, container, false);
 
         ArrayList<String> data = new ArrayList<>();
-        for (int i=0; i<10; ++i) {
-            data.add("Person " + (i+1));
+        for (int i = 1; i <= 10; ++i) {
+            data.add("Person " + i);
         }
         MyAdapter viewAdapter = new MyAdapter(data);
 

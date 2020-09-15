@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRestoreInstanceState(@NotNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
         // Now that BottomNavigationBar has restored its instance state
         // and its selectedItemId, we can proceed with setting up the
         // BottomNavigationBar with Navigation
@@ -82,14 +83,18 @@ public class MainActivity extends AppCompatActivity {
                 getIntent());
 
         // Whenever the selected controller changes, setup the action bar.
-        controller.observe(this,
-                navController -> setupActionBarWithNavController(MainActivity.this, navController, null));
+        controller.observe(
+                this,
+                navController -> setupActionBarWithNavController(
+                        MainActivity.this,
+                        navController,
+                        null));
 
         currentNavController = controller;
     }
 
     private void setupActionBarWithNavController(
-            AppCompatActivity thiz,
+            AppCompatActivity appCompatActivity,
             NavController navController,
             AppBarConfiguration configuration)
     {
@@ -99,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     null,
                     null);
         }
-        NavigationUI.setupActionBarWithNavController(thiz, navController, configuration);
+        NavigationUI.setupActionBarWithNavController(appCompatActivity, navController, configuration);
     }
 
     private AppBarConfiguration appBarConfiguration(
@@ -110,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         if (fallbackOnNavigateUpListener == null) {
             fallbackOnNavigateUpListener = () -> false;
         }
+
         return new AppBarConfiguration.Builder(navGraph)
                 .setDrawerLayout(drawerLayout)
                 .setFallbackOnNavigateUpListener(fallbackOnNavigateUpListener)

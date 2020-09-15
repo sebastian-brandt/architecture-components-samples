@@ -44,6 +44,7 @@ public class UserProfile extends Fragment {
 
         TextView textView = view.findViewById(R.id.profile_user_name);
         textView.setText(name);
+
         return view;
     }
 }
